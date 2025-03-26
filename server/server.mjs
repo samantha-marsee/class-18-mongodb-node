@@ -21,13 +21,13 @@ const client = new MongoClient('mongodb://localhost:27017');
 const conn = await client.connect();
 const db = conn.db('app');
 
-
+// Gets all the documents, uses .toArray()
 app.get('/api/produce.json', async (req, res) => {
   const produce = await db.collection('produce').find().toArray()
   res.json(produce).status(200)
 });
 
-// Get Bananas 67e40f0ec7e47153376b140c
+// Get Bananas 67e40f0ec7e47153376b140c, no .toArray(). Have to use new ObjectID to convert string to object ID
 app.get('/api/produce/67e40f0ec7e47153376b140c.json', async (req, res) => {
   const product = await db.collection('produce').findOne({_id: new ObjectId('67e40f0ec7e47153376b140c')})
   res.json(product).status(200)
