@@ -30,7 +30,7 @@ app.get('/api/produce.json', async (req, res) => {
 // This will work for any single document
 app.get('/api/produce/:id.json', async (req, res) => {
   const id = req.params.id
-  const product = await db.collection('produce').findOne({_id: id})
+  const product = await db.collection('produce').findOne({_id: new ObjectId(id)})
   res.json(product).status(200)
 });
 
