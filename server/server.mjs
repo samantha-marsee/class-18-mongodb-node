@@ -27,9 +27,10 @@ app.get('/api/produce.json', async (req, res) => {
   res.json(produce).status(200)
 });
 
-// Get Bananas 67e40f0ec7e47153376b140c, no .toArray(). Have to use new ObjectID to convert string to object ID
-app.get('/api/produce/67e40f0ec7e47153376b140c.json', async (req, res) => {
-  const product = await db.collection('produce').findOne({_id: new ObjectId('67e40f0ec7e47153376b140c')})
+// This will work for any single document
+app.get('/api/produce/:id.json', async (req, res) => {
+  const id = req.params.id
+  const product = await db.collection('produce').findOne({_id: id})
   res.json(product).status(200)
 });
 
