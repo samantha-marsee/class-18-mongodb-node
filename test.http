@@ -1,4 +1,14 @@
 /*
 # Test the Server API
 */
+@host http://localhost:8080
 GET http://localhost:8080/api/documents.json
+
+HTTP/1.1 200  - OK
+x-powered-by: Express
+access-control-allow-origin: *
+content-type: application/json; charset=utf-8
+content-length: 338
+etag: W/"152-XkbXyMTlk8M5njHpV/XWWwNmOg4"
+date: Wed, 26 Mar 2025 14:24:43 GMT
+connection: close
