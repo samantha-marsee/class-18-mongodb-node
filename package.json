@@ -1,0 +1,11 @@
+{
+  "name": "info2310-class18",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

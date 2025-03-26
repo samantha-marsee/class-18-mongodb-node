@@ -1,0 +1,4 @@
+/*
+# Test the Server API
+*/
+GET http://localhost:8080/api/documents.json
