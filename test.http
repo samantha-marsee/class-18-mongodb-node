@@ -2,13 +2,13 @@
 # Test the Server API
 */
 @host http://localhost:8080
-GET http://localhost:8080/api/documents.json
+GET http://localhost:8080/api/produce.json
 
 HTTP/1.1 200  - OK
 x-powered-by: Express
 access-control-allow-origin: *
 content-type: application/json; charset=utf-8
-content-length: 338
-etag: W/"152-XkbXyMTlk8M5njHpV/XWWwNmOg4"
-date: Wed, 26 Mar 2025 14:24:43 GMT
+content-length: 4099
+etag: W/"1003-ojHwHcXCPvZ26VawKCHymX7h/0Q"
+date: Wed, 26 Mar 2025 14:46:20 GMT
 connection: close

@@ -16,32 +16,14 @@ app.use((req, res, next) => {
 
 
 // Connect to MongoDB
-// import { MongoClient, ObjectId } from 'mongodb';
-// const client = new MongoClient('mongodb://localhost:27017');
-// const conn = await client.connect();
+import { MongoClient, ObjectId } from 'mongodb';
+const client = new MongoClient('mongodb://localhost:27017');
+const conn = await client.connect();
+const db = conn.db('app');
 
-app.get('/api/documents.json', async (req, res) => {
-  res.json([
-    {
-      name: "Apple",
-      category: "fruit",
-      price: 1.99,
-      quantity: 150,
-      supplier: "Organic Farms Inc",
-      organic: true,
-      country: "USA",
-      expiration: new Date("2023-12-15")
-    },
-    {
-      name: "Banana",
-      category: "fruit",
-      price: 0.59,
-      quantity: 200,
-      supplier: "Tropical Imports",
-      organic: false,
-      country: "Ecuador",
-      expiration: new Date("2023-12-10")
-    }]).status(200);
+app.get('/api/produce.json', async (req, res) => {
+  const produce = await db.collection('produce').find().toArray()
+  res.json(produce).status(200)
 });
 
 
